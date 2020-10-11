@@ -1,0 +1,170 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 100%; // 16px
+    overflow-y: scroll; // Force scrollbar
+}
+
+body {
+    font-family: $font-fam;
+    background: $background;
+    color: $text-color;
+    font-weight: $fw-light;
+    line-height: 1.5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+// Type scale - perfect fourth - https://type-scale.com
+
+h1,
+h2,
+h3 {
+    color: $accent-color;
+    font-weight: $fw-bold;
+    margin: 2.75rem 0 1.05rem;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 3.157em;
+}
+
+h2 {
+    font-size: 2.369em;
+}
+
+h3 {
+    font-size: 1.777em;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 1.15rem;
+}
+
+small {
+    font-size: 0.889em;
+}
+
+a,
+a:link {
+    color: $accent-color;
+    text-decoration: none;
+}
+
+a:visited,
+a:hover,
+a:active {
+    color: $accent-color-light;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.wrap {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: $width-x-large;
+
+    flex: 1 0 auto; // Flexible for fixed footer
+}
+
+.site-header {
+    max-width: 70ch;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+.site-intro {
+    a:after {
+        content: " →";
+    }
+}
+
+.gallery {
+    box-sizing: border-box;
+    padding: 0 5px 1.15rem 5px;
+    margin: 0;
+    list-style: none;
+
+    // Flex if no grid
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    // Set up CSS grid
+    display: grid;
+    justify-content: center;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+
+    img {
+        display: block;
+    }
+}
+
+.gallery-item {
+    margin: 0 0 10px 0;
+    padding: 0;
+    flex: auto;
+    max-width: 49%;
+}
+
+@media (min-width: $width-mid) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-item {
+        max-width: 32%;
+    }
+
+}
+
+@media (min-width: $width-large) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-item {
+        max-width: 24%;
+    }
+}
+
+// Reset margin and width if grid is supported
+
+@supports (display: grid) {
+    .gallery-item {
+        margin: 0;
+        max-width: none;
+    }
+}
+
+
+// Footer
+.site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: $accent-color-light;
+
+    flex-shrink: 0; // Fixed footer
+
+    .social-icon {
+        margin: 0 0.5rem;
+        padding: .5rem;
+    }
+}
