@@ -126,35 +126,43 @@ p { font-size: 1.2em; margin-bottom: 1.15rem; }
 
 small { font-size: 0.889em; }
 
-a, a:link { color: #4fc3f7; text-decoration: none; }
+a, a:visited { color: #b3e5fc; text-decoration: none; }
 
-a:visited, a:hover, a:active { color: #b3e5fc; }
+a:hover, a:active { color: #4fc3f7; }
+
+.link-cta { text-decoration: underline; }
+
+.link-cta:after { content: " →"; }
+
+.link-cta:hover { transition: all 0.5s; }
 
 img { max-width: 100%; height: auto; }
 
 .wrap { margin: 0 auto; padding: 0; width: 100%; max-width: 1200px; flex: 1 0 auto; }
 
-.site-header { max-width: 70ch; text-align: center; margin: 0 auto; padding: 0 0.5rem; }
+.site-header { max-width: 60ch; text-align: center; margin: 0 auto; padding: 0 0.5rem; }
 
-.site-intro a:after { content: " →"; }
-
-.gallery { box-sizing: border-box; padding: 0 5px 1.15rem 5px; margin: 0; list-style: none; display: flex; flex-flow: row wrap; justify-content: space-between; display: grid; justify-content: center; grid-gap: 5px; grid-template-columns: repeat(2, 1fr); }
+.gallery { box-sizing: border-box; margin: 3.157em 0.5em; padding: 0; list-style: none; display: flex; flex-flow: row wrap; justify-content: space-between; display: grid; justify-content: center; grid-gap: 5px; grid-template-columns: repeat(2, 1fr); }
 
 .gallery img { display: block; }
 
-.gallery-item { margin: 0 0 10px 0; padding: 0; flex: auto; max-width: 49%; }
+.gallery-item { margin: 0 0 10px 0; padding: 0; flex: auto; max-width: 300px; }
 
-@media (min-width: 750px) { .gallery { grid-template-columns: repeat(3, 1fr); }
-  .gallery-item { max-width: 32%; } }
+.gallery-item img { width: 100%; }
+
+@media (min-width: 750px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 
 @media (min-width: 900px) { .gallery { grid-template-columns: repeat(4, 1fr); }
   .gallery-item { max-width: 24%; } }
 
-@supports (display: grid) { .gallery-item { margin: 0; max-width: none; } }
+@supports (display: grid) { .gallery-item { margin: 0; max-width: none; border: 1px solid #263238; }
+  .gallery-item:hover { border: 1px solid #eceff1; transition: border 0.5s; } }
 
 .site-footer { display: flex; justify-content: center; align-items: center; margin: 0; padding: 0; background: #b3e5fc; flex-shrink: 0; }
 
 .site-footer .social-icon { margin: 0 0.5rem; padding: .5rem; }
+
+.site-footer .social-icon:hover { background-color: #eceff1; transition: all 0.5s; }
 
 /* Hide visually and from screen readers */
 .hidden, [hidden] { display: none !important; }
